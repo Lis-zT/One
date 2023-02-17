@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <style>
         body, html{
-            background-color: #1E1E1E;
+            background-color: #0F0E17;
             color: #FFFFFE;
         }
 
@@ -19,6 +19,17 @@
         .nav-link:hover{
             color: #ff8906;
         }
+
+        .nav-link:active, .nav-link:focus{
+          color: #FF8906;
+        }
+
+        .btn:hover{
+          color: #FFFFFE;
+          background-color: #FF8906;
+          border-color: #FF8906;
+        }
+
         p{
             color: #A7A9BE;
         }
@@ -26,11 +37,14 @@
           background-color: #FF8906; 
           color: #FFFFFE;
         }
+
+        .footer-2{
+          background-color: rgb(0, 0, 0, 15);
+        }
     </style>
   </head>
-  <body>
 
-        <nav class="nav-one navbar navbar-expand-lg">
+        <nav class="nav-one navbar navbar-expand-lg mx-5">
             <div class="d-flex container-fluid">
               <a class="navbar-brand" href="#"><img src="./assets/Asset 2@4x-8.png" alt="ONE" style="width: 80px;"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +65,7 @@
                     <a class="one-white nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Products
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
                       <li><a class="dropdown-item" href="#">Action</a></li>
                       <li><a class="dropdown-item" href="#">Another action</a></li>
                       <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -75,7 +89,7 @@
                       <h2>Simple Being Ordinary</h2>
                         <p>To Help your life easier.</p>
                         <p>Lorem ipsum dolor sit amet consectetur. Volutpat vitae tempor viverra quis. Aenean ut leo pulvinar sed neque. Pellentesque tellus ac tortor enim sed turpis. Cras vestibulum donec suspendisse pellentesque. Aenean ac fusce aliquam bibendum neque non id. At ullamcorper dui lorem egestas. Id at tortor velit id convallis ac aenean mi ac.</p>
-                        <button type="button" class="btn">Get Ur Product</button>
+                        <button type="button" class="btn btn-one">Get Ur Product</button>
                     </div>
                   </div>
                 </div>
@@ -128,14 +142,14 @@
               <div class="footer-logo col-md-12 my-4 text-center">
                 <img src="./assets/Asset 2@4x-8.png" class="img-fluid" alt="ONE" style="width: 80px;">
               </div>
-              <div class="footer-content col-md-12 my-4" style="background-color:#212529">
+              <div class="footer-content col-md-12 my-4 px-5" style="background-color:#212529">
                 <div class="row">
                   <div class="col-md-4">
-                    <h2>Product</h2>
+                    <h4>Product</h4>
                     <p><a href="#" class="nav-link"></a>One Card</p>
                   </div>
                   <div class="col-md-4">
-                    <h2>Tentang Kami</h2>
+                    <h4>Tentang Kami</h4>
                     <p><a href="#" class="nav-link"></a>Perusahaan Kami</p>
                     <p><a href="#" class="nav-link"></a>Hubungi Kami</p>
                     <p><a href="#" class="nav-link"></a>Acara</p>
@@ -148,7 +162,7 @@
             </div>
           </div>
           <div class="row">  
-            <div class="footer-2 col-md-12"> 
+            <div class="footer-2 pt-2 pb-2 col-md-12 px-5"> 
               <h6>Website Made By <img src="./assets/Asset 2@4x-8.png" class="img-fluid" alt="ONE" style="width: 50px;"></h6>
             </div>
           </div>
