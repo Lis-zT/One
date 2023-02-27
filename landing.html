@@ -25,6 +25,10 @@ License: For each use you must have a valid license purchased only from above li
 		<meta property="og:site_name" content="Keenthemes | Metronic" />
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+		<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 		<!--begin::Fonts-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
@@ -32,8 +36,16 @@ License: For each use you must have a valid license purchased only from above li
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
-
+		<script src='https://cdn.tailwindcss.com/'></script>
+		<script src="assets/plugins/custom/typedjs/typedjs.bundle.js"></script>
 		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
 			.landing-dark-bg{
 				background-color: #0F0E17;
 			}
@@ -45,6 +57,94 @@ License: For each use you must have a valid license purchased only from above li
 			.btn-one{
 				background-color: #FF8906;
 				color: #FFFFFE;
+			}
+
+			.menu-state-title-primary .menu-item .menu-link:hover:not(.disabled):not(.active) {
+				color: #FF8906;
+			}
+
+			section {
+				width: 100%;
+			}
+			.one-container {
+				width: 90%;
+				max-width: 1200px;
+				margin: 0 auto;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.one-cardWrapper {
+				perspective: 1000px;
+				width: 100%;
+				max-width: 466.67px;
+				height: 300px;
+			}
+			.one-card {
+				width: 100%;
+				height: 100%;
+				border-radius: 18px;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+				padding: 30px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				justify-content: flex-end;
+				font-size: 1.6rem;
+				font-family: poppins;
+				background-color: #1B1E23;
+				color: white;
+				position: relative;
+				overflow: hidden;
+			}
+			.one-bg {
+				width: 100%;
+				height: 100%;
+				/* z-index: -1; */
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.one-bg img {
+				width: 40%;
+				object-fit: cover;
+			}
+			.one-cardWrapper * {
+				pointer-events: none;
+			}
+			.highlight {
+				position: absolute;
+				height: 400px;
+				width: 400px;
+				border-radius: 50%;
+				background-color: rgba(255, 255, 255, 0.034);
+				filter: brightness(70%) blur(20px);
+				left: -20%;
+				top: -13%;
+			}
+			.card__number {
+				font-size: 2rem;
+				margin-bottom: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+			}
+			.card__number--stars {
+				height: 2.4rem;
+			}
+			.card__name {
+				font-weight: 300;
+				font-size: 4rem;
+				margin-bottom: 10px;
+				align-self: flex-start;
+				color: #000000;
+			}
+
+			.one-chip{
+				position: absolute;
+				top: 60px;
+				left: 60px;
 			}
 		</style>
 	</head>
@@ -94,7 +194,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="#kt_body" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
+												<a class="menu-link nav-link one-hover active py-3 px-4 px-xxl-6" href="#kt_body" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
@@ -135,14 +235,20 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Heading-->
 						<div class="text-center mb-5 mb-lg-10 py-10 py-lg-20">
 							<!--begin::Title-->
-							<h1 class="text-white lh-base fw-bolder fs-2x fs-lg-3x mb-15">Simple Being Ordinary
+							<h1 class="animate__animated animate__slideInDown text-white lh-base fw-bolder fs-2x fs-lg-3x mb-15">Simple Being Ordinary
 							<br />to
 							<span style="background: linear-gradient(to right, #F6891F 0%, #E53070 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">
-								<span id="kt_landing_hero_text">Help your life easier</span>
+								<span id="kt_landing_hero_text"></span>
+								<script>
+									var typed = new Typed("#kt_landing_hero_text", {
+													strings: ["Help your life easier"],
+													typeSpeed: 30
+												});
+								</script>
 							</span></h1>
 							<!--end::Title-->
 							<!--begin::Action-->
-							<a href="../../demo1/dist/index.html" class="btn btn-one">Get Products</a>
+							<!-- <a href="../../demo1/dist/index.html" class="btn btn-one">Get Products</a> -->
 							<!--end::Action-->
 						</div>
 						<!--end::Heading-->
@@ -172,18 +278,36 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Title-->
 						<!--begin::Text-->
 						<div class="fs-5 text-muted fw-bold">Save thousands to millions of bucks by using single tool
-						<br />for different amazing and great useful admin</div>
+						<br>for different amazing and great useful admin</div>
 						<!--end::Text-->
 					</div>
 					<!--end::Heading-->
 					<!--begin::Row-->
-					<div class="row w-100 gy-10 mb-md-20">
+					<section class="animate__animated animate__slideInUp" style="position: absolute; top: 460px; left: 0px;">
+						<div class="one-container">
+						  <div class="one-cardWrapper">
+							<div class="one-card">
+								<div class="one-bg">
+									<img src="assets/logo-black.png" alt="ONE"/>
+								</div>
+								<div class="one-chip">
+									<a href="#" class="btn btn-icon pulse pulse-primary">
+										<i class="bi bi-sim fs-1" style="color: rgba(249, 230, 0, 0.55); transform: rotate(90deg)"></i>
+										<span class="pulse-ring border-2"></span>
+									</a>
+								</div>
+								<div class="highlight"></div>
+							</div>
+						  </div>
+						</div>
+					  </section>
+					  <div class="row w-100 gy-10 mb-md-20">
 						<!--begin::Col-->
 						<div class="col-md-4 px-5">
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
+								<img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="">
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -197,8 +321,8 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Heading-->
 								<!--begin::Description-->
 								<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great</div>
+								<br>by using single tool for different
+								<br>amazing and great</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -209,7 +333,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" />
+								<img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="">
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -223,8 +347,8 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Heading-->
 								<!--begin::Description-->
 								<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great</div>
+								<br>by using single tool for different
+								<br>amazing and great</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -235,7 +359,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Story-->
 							<div class="text-center mb-10 mb-md-0">
 								<!--begin::Illustration-->
-								<img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" />
+								<img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="">
 								<!--end::Illustration-->
 								<!--begin::Heading-->
 								<div class="d-flex flex-center mb-5">
@@ -249,8 +373,8 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Heading-->
 								<!--begin::Description-->
 								<div class="fw-bold fs-6 fs-lg-4 text-muted">Save thousands to millions of bucks
-								<br />by using single tool for different
-								<br />amazing and great</div>
+								<br>by using single tool for different
+								<br>amazing and great</div>
 								<!--end::Description-->
 							</div>
 							<!--end::Story-->
@@ -258,55 +382,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Col-->
 					</div>
 					<!--end::Row-->
-					<!--begin::Product slider-->
-					<div class="tns tns-default">
-						<!--begin::Slider-->
-						<div data-tns="true" data-tns-loop="true" data-tns-swipe-angle="false" data-tns-speed="2000" data-tns-autoplay="true" data-tns-autoplay-timeout="18000" data-tns-controls="true" data-tns-nav="false" data-tns-items="1" data-tns-center="false" data-tns-dots="false" data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo1.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo2.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo4.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
-							<!--begin::Item-->
-							<div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-								<img src="assets/media/product-demos/demo5.png" class="card-rounded shadow mw-100" alt="" />
-							</div>
-							<!--end::Item-->
-						</div>
-						<!--end::Slider-->
-						<!--begin::Slider button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_prev1">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr074.svg-->
-							<span class="svg-icon svg-icon-3x">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path d="M11.2657 11.4343L15.45 7.25C15.8642 6.83579 15.8642 6.16421 15.45 5.75C15.0358 5.33579 14.3642 5.33579 13.95 5.75L8.40712 11.2929C8.01659 11.6834 8.01659 12.3166 8.40712 12.7071L13.95 18.25C14.3642 18.6642 15.0358 18.6642 15.45 18.25C15.8642 17.8358 15.8642 17.1642 15.45 16.75L11.2657 12.5657C10.9533 12.2533 10.9533 11.7467 11.2657 11.4343Z" fill="black" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-						<!--end::Slider button-->
-						<!--begin::Slider button-->
-						<button class="btn btn-icon btn-active-color-primary" id="kt_team_slider_next1">
-							<!--begin::Svg Icon | path: icons/duotune/arrows/arr071.svg-->
-							<span class="svg-icon svg-icon-3x">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-									<path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="black" />
-								</svg>
-							</span>
-							<!--end::Svg Icon-->
-						</button>
-						<!--end::Slider button-->
-					</div>
+					
 					<!--end::Product slider-->
 				</div>
 				<!--end::Container-->
@@ -1324,7 +1400,7 @@ License: For each use you must have a valid license purchased only from above li
 			</div>
 			<!--end::Pricing Section-->
 			<!--begin::Testimonials Section-->
-			<div class="mt-20 mb-n20 position-relative z-index-2">
+			<div class="mt-20 mb-n20">
 				<!--begin::Container-->
 				<div class="container">
 					<!--begin::Heading-->
@@ -1502,35 +1578,33 @@ License: For each use you must have a valid license purchased only from above li
 					</div>
 					<!--end::Row-->
 					<!--begin::Highlight-->
-					<div class="d-flex flex-stack flex-wrap flex-md-nowrap card-rounded shadow p-8 p-lg-12 mb-n5 mb-lg-n13" style="background: linear-gradient(90deg, #20AA3E 0%, #03A588 100%);">
-						<!--begin::Content-->
-						<div class="my-2 me-5">
-							<!--begin::Title-->
-							<div class="fs-1 fs-lg-2qx fw-bolder text-white mb-2">Start With Metronic Today,
-							<span class="fw-normal">Speed Up Development!</span></div>
-							<!--end::Title-->
-							<!--begin::Description-->
-							<div class="fs-6 fs-lg-5 text-white fw-bold opacity-75">Join over 100,000 Professionals Community to Stay Ahead</div>
-							<!--end::Description-->
-						</div>
-						<!--end::Content-->
-						<!--begin::Link-->
-						<a href="https://1.envato.market/EA4JP" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Purchase on Themeforest</a>
-						<!--end::Link-->
-					</div>
 					<!--end::Highlight-->
 				</div>
 				<!--end::Container-->
+				<div class="d-flex flex-stack flex-wrap flex-md-nowrap p-8 p-lg-12 mb-n5 mb-lg-n13" style="background: linear-gradient(90deg, #20AA3E 0%, #03A588 100%); box-shadow: 0 10px 10px #16181b;">
+					<!--begin::Content-->
+					<div class="my-2 me-5">
+						<!--begin::Title-->
+						<div class="fs-1 fs-lg-2qx fw-bolder text-white mb-2">Start With Metronic Today,
+						<span class="fw-normal">Speed Up Development!</span></div>
+						<!--end::Title-->
+						<!--begin::Description-->
+						<div class="fs-6 fs-lg-5 text-white fw-bold opacity-75">Join over 100,000 Professionals Community to Stay Ahead</div>
+						<!--end::Description-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Link-->
+					<a href="https://1.envato.market/EA4JP" class="btn btn-lg btn-outline border-2 btn-outline-white flex-shrink-0 my-2">Purchase on Themeforest</a>
+					<!--end::Link-->
+				</div>
 			</div>
 			<!--end::Testimonials Section-->
-			<!--begin::Footer Section-->
+		</div>
+		<!--end::Main-->
+		<footer>
+						<!--begin::Footer Section-->
 			<div class="mb-0">
 				<!--begin::Curve top-->
-				<div class="landing-curve landing-dark-color">
-					<svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
-					</svg>
-				</div>
 				<!--end::Curve top-->
 				<!--begin::Wrapper-->
 				<div class="landing-dark-bg pt-20">
@@ -1690,9 +1764,51 @@ License: For each use you must have a valid license purchased only from above li
 				<!--end::Svg Icon-->
 			</div>
 			<!--end::Scrolltop-->
-		</div>
-		<!--end::Main-->
+		</footer>
 		<script>var hostUrl = "assets/";</script>
+		<script>
+			// DOM Element selections
+			const cardWrapper = document.querySelector(".one-cardWrapper");
+			const card = document.querySelector(".one-card");
+			const highlight = document.querySelector(".highlight");
+
+			// highest values for angle
+			const mostX = 10; // 10 or -10
+			const mostY = 10; // 10 or -10
+
+			cardWrapper.addEventListener("mousemove", (e) => {
+			// remove transition
+			card.style.transition = "none";
+			highlight.style.transition = "none";
+
+			const x = e.offsetX;
+			const y = e.offsetY;
+			const { width, height } = cardWrapper.getBoundingClientRect();
+			const halfWidth = width / 2;
+			const halfHeight = height / 2;
+
+			// calculate angle
+			const rotationY = ((x - halfWidth) / halfWidth) * mostX;
+			const rotationX = ((y - halfHeight) / halfHeight) * mostY;
+
+			// set rotation
+			card.style.transform = `rotateY(${rotationY}deg) rotateX(${rotationX}deg)`;
+			highlight.style.left = `${(rotationY / mostX) * 30 * -1}%`;
+			highlight.style.top = `${(rotationX / mostY) * 30 * -1}%`;
+			});
+
+			cardWrapper.addEventListener("mouseleave", () => {
+			// add transition back
+			card.style.transition = "transform 0.5s ease-in-out";
+			card.style.transform = `rotateY(0) rotateX(0)`;
+			highlight.style.transition = "left 0.5s ease-in-out, top 0.5s ease-in-out";
+
+			// add default position back to highlight
+			highlight.style.left = `-20%`;
+			highlight.style.top = `-13%`;
+			});
+
+		</script>
 		<!--begin::Javascript-->
 		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
